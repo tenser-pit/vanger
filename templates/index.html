@@ -1,0 +1,133 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+{#    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <title>Your Landing Page</title>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+                <img class="logo-img" src="{% static 'image/nasa.png' %}" alt="главная страница">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Преимущества</a>
+            </li>
+            <li class="navbar-nav">
+              <a class="nav-link" href="#">Фотографии</a>
+            </li>
+          </ul>
+        </div>
+        <button type="button" class="button-login">
+            <a href="" class="button-login-text">ВХОД</a>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Основной контент лендинга -->
+    <div class="main-container">
+      <div class="main-text">
+          <h1 class="center-text ">Космическое агентство</h1>
+          <p class="center-text-description">Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
+      </div>
+      <div class="main-description">
+        <div class="left-description">
+            <div class="item">
+                <img src="{% static 'image/shuttle-space.png' %}" alt="">
+                <h3 class="icons-text">Спейс шаттлы — пилотируемые корабли</h3>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/telescope.png' %}" alt="">
+                <h3 class="icons-text">Лучшее телескопическое оборудование</h3>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/moon-stars.png' %}" alt="">
+                <h3 class="icons-text">Целимся на Луну и Марс</h3>
+            </div>
+            <div class="item">
+                <img src="{% static 'image/medal.png' %}" alt="">
+                <h3 class="icons-text">Золотая медаль по научным исследованиям</h3>
+            </div>
+        </div>
+          <div class="right-description">
+              <img src="{% static 'image/galaxy.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<footer>
+    <h2>Фотографии</h2>
+
+  <div class="sld-wrp">
+      <div class="slider slider-single">
+          {% for slide in slider %}#}
+              <div class="slide-container">
+                <img  class="top-img" src="{% thumbnail slide.image  750x420 crop upscale subject_location=slide.img.subject_location %}" alt="">
+              </div>
+          {% endfor %}
+      </div>
+      <div class="slider slider-nav">
+          {% for slide in slider %}
+              <div class="slide-btn">
+                <img class="bottom-img" src="{% thumbnail slide.image  165x165 crop upscale subject_location=slide.img.subject_location %}" alt="">
+              </div>
+          {% endfor %}
+      </div>
+    </div>
+
+
+</footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+
+    <script>
+        $('.slider-single').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            useTransform: true,
+            asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+            slidesToShow: 4.99,
+            slidesToScroll: 1,
+            arrows: true,
+            loop: true,
+            asNavFor: '.slider-single',
+            dots: false,
+            focusOnSelect: true,
+            VariableWidth: true,
+            prevArrow: "<img src='{% static 'image/Vector(2).png' %}' class='slick-prev' style='width: 56px ; height: 56px; left: -110px;' alt='1'>",
+            nextArrow: "<img src='{% static 'image/Vector(1).png' %}' class='slick-next' style='width: 56px ; height: 56px; right: -110px;'alt='2'>",
+        });
+    </script>
+
+
+</body>
+</html>
