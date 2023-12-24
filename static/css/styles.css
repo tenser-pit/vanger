@@ -130,3 +130,26 @@ footer {
       width: calc((100% / 3) * 2);
     }
 }
+.slick-prev:before,
+.slick-next:before {
+    display: none;
+  }
+
+  .slick-prev,
+  .slick-next {
+    width: 56px;
+    height: 56px;
+  }
+
+.slick-prev {
+    left: -110px;
+    background: url("/static/image/Vector(2).png");
+    background-size: 100%;
+  }
+
+.slick-next,.slick-next:hover,.slick-next:focus {
+    right: -110px;
+    background: url("/static/image/Vector(1).png");
+    background-size: 100%;
+  }
+

@@ -60,19 +60,19 @@
           <div class="row flex-column flex-sm-row ">
               <div class="col align-self-center">
                   <div class="row row-cols-2 justify-content-center w-100 h-100 mx-auto">
-                        <div class="row">
+                        <div class="d-flex flex-column">
                             <img class="mini-ico" src="{% static 'image/shuttle-space.png' %}" alt="">
                             <h3 class="icons-text">Спейс шаттлы — пилотируемые корабли</h3>
                         </div>
-                        <div class="row">
+                        <div class="d-flex flex-column">
                             <img class="mini-ico" src="{% static 'image/telescope.png' %}" alt="">
                             <h3 class="icons-text">Лучшее телескопическое оборудование</h3>
                         </div>
-                        <div class="row">
+                        <div class="d-flex flex-column">
                             <img class="mini-ico" src="{% static 'image/moon-stars.png' %}" alt="">
                             <h3 class="icons-text">Целимся на Луну и Марс</h3>
                         </div>
-                        <div class="row">
+                        <div class="d-flex flex-column">
                             <img class="mini-ico" src="{% static 'image/medal.png' %}" alt="">
                             <h3 class="icons-text">Золотая медаль по научным исследованиям</h3>
                         </div>
@@ -118,50 +118,7 @@
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
     <script src="{% static 'js/lightbox.min.js' %}"></script>
-
-    <script>
-        $('.slider-single').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            useTransform: true,
-            asNavFor: '.slider-nav'
-        });
-        $('.slider-nav').slick({
-            slidesToShow: 4.99999,
-            slidesToScroll: 1,
-            arrows: true,
-            centerMode: true,
-            loop: true,
-            asNavFor: '.slider-single',
-            dots: false,
-            focusOnSelect: true,
-            VariableWidth: true,
-            prevArrow: "<img src='{% static 'image/Vector(2).png' %}' class='slick-prev' style='width: 56px ; height: 56px; left: -110px;' alt='1'>",
-            nextArrow: "<img src='{% static 'image/Vector(1).png' %}' class='slick-next' style='width: 56px ; height: 56px; right: -110px;'alt='2'>",
-            responsive: [
-            {
-                breakpoint: 480,
-                settings: {
-                    arrows: false,
-                    centerMode: true,
-                    slidesToShow: 3,
-                }
-            }
-        ]
-
-        });
-    </script>
-
-    <script>
-        lightbox.option({
-            'positionFromTop': 250,
-            'maxWidth': 1000,
-            'wrapAround': true
-        })
-    </script>
-
+    <script src="{% static 'js/scripts.js' %}"></script>
 
 
 </body>
